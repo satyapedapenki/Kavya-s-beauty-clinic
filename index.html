@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kavya's Beauty Clinic</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#fff4f7;
+    color:#333;
+}
+
+/* HEADER */
+/* NAVBAR */
+
+.navbar{
+    width:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:1000;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:18px 60px;
+
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(12px);
+
+    box-shadow:0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* LOGO */
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.logo-circle{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#ff4f81,#ff85a2);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:28px;
+    color:#ff4881;
+
+    box-shadow:0 5px 15px rgba(255,79,129,0.4);
+}
+
+.logo-text h2{
+    color:#ff4881;
+    font-size:28px;
+    margin-bottom:4px;
+}
+
+.logo-text p{
+    color:#ff85a2;
+    font-size:14px;
+    letter-spacing:1px;
+}
+
+/* NAV LINKS */
+
+nav{
+    display:flex;
+    gap:35px;
+}
+
+nav a{
+    color:#ff4881;
+    text-decoration:none;
+    font-size:18px;
+    font-weight:600;
+    transition:0.3s;
+    position:relative;
+}
+
+nav a::after{
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:-6px;
+    width:0;
+    height:3px;
+    background:#ff85a2;
+    transition:0.3s;
+    border-radius:10px;
+}
+
+nav a:hover::after{
+    width:100%;
+}
+
+nav a:hover{
+    color:#ffd6e2;
+}
+
+/* CALL BUTTON */
+
+.call-btn{
+    background:#ff4f81;
+    color:white;
+    padding:14px 26px;
+    border-radius:40px;
+    text-decoration:none;
+    font-size:16px;
+    font-weight:bold;
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    transition:0.3s;
+}
+
+.call-btn:hover{
+    background:#ff2f6d;
+    transform:translateY(-3px);
+}
+
+/* MOBILE */
+
+@media(max-width:1000px){
+
+    .navbar{
+        flex-direction:column;
+        gap:20px;
+        padding:20px;
+    }
+
+    nav{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:18px;
+       
+    }
+
+    .logo-text h2{
+        font-size:22px;
+        
+        
+    }
+
+    nav a{
+        font-size:16px;
+        color: #ff4081;
+    }
+
+    .call-btn{
+        padding:12px 20px;
+    }
+}
+
+/* HERO CAROUSEL */
+
+/* HERO SECTION */
+
+.hero{
+    position:relative;
+    width:100%;
+    min-height:700px;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:40px;
+}
+
+.hero-bg{
+    position:absolute;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    top:0;
+    left:0;
+}
+
+.hero-overlay{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.45);
+    top:0;
+    left:0;
+}
+
+/* FLOATING IMAGES */
+
+.floating-images{
+    position:absolute;
+    right:5%;
+    top:50%;
+    transform:translateY(-50%);
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    z-index:2;
+}
+
+.floating-images img{
+    width:180px;
+    height:180px;
+    object-fit:cover;
+    border-radius:20px;
+    border:5px solid white;
+    box-shadow:0 8px 20px rgba(0,0,0,0.3);
+    transition:0.4s;
+}
+
+.floating-images img:hover{
+    transform:scale(1.05);
+}
+
+/* HERO CONTENT */
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:700px;
+    color:white;
+    text-align:left;
+    margin-right:260px;
+}
+
+.hero-content h2{
+    font-size:60px;
+    line-height:1.2;
+    margin-bottom:20px;
+}
+
+.hero-content h2 span{
+    color:#ff85a2;
+}
+
+.hero-content p{
+    font-size:20px;
+    line-height:1.8;
+    margin-bottom:30px;
+}
+
+.hero-btn{
+    display:inline-block;
+    padding:15px 35px;
+    background:#ff4f81;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    font-size:18px;
+    transition:0.3s;
+}
+
+.hero-btn:hover{
+    background:#ff2d6b;
+    transform:translateY(-3px);
+}
+
+/* MOBILE RESPONSIVE */
+
+@media(max-width:900px){
+
+    .hero{
+        min-height:900px;
+        padding:20px;
+    }
+
+    .hero-content{
+        margin-right:0;
+        text-align:center;
+    }
+
+    .hero-content h2{
+        font-size:42px;
+    }
+
+    .floating-images{
+        position:relative;
+        right:auto;
+        top:auto;
+        transform:none;
+        flex-direction:row;
+        justify-content:center;
+        margin-top:40px;
+        flex-wrap:wrap;
+    }
+
+    .floating-images img{
+        width:120px;
+        height:120px;
+    }
+}
+
+/* SERVICES */
+
+.services{
+    padding:60px 20px;
+}
+
+.services h2{
+    text-align:center;
+    color:#ff4f81;
+    margin-bottom:40px;
+    font-size:40px;
+}
+
+.service-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card img{
+    width:100%;
+    height:240px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:25px;
+    text-align:center;
+}
+
+.card h3{
+    color:#ff4f81;
+    margin-bottom:10px;
+    font-size:28px;
+}
+
+.card p{
+    margin-bottom:18px;
+    font-size:17px;
+}
+
+.card button{
+    background:#ff4f81;
+    color:white;
+    border:none;
+    padding:12px 24px;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.card button:hover{
+    background:#e63d70;
+}
+
+/* DETAILS BOX */
+
+#serviceDetails{
+    margin-top:40px;
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    display:none;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+#serviceDetails h3{
+    color:#ff4f81;
+    margin-bottom:15px;
+}
+
+/* PRODUCT CAROUSEL */
+
+/* PRODUCTS */
+
+/* PRODUCTS SECTION */
+
+.products{
+    padding:80px 20px;
+    background:linear-gradient(to bottom,#fff5f8,#ffffff);
+    overflow:hidden;
+}
+
+.products h2{
+    text-align:center;
+    font-size:48px;
+    color:#ff4f81;
+    margin-bottom:50px;
+    position:relative;
+}
+
+.products h2::after{
+    content:'';
+    width:120px;
+    height:4px;
+    background:#ff85a2;
+    position:absolute;
+    bottom:-15px;
+    left:50%;
+    transform:translateX(-50%);
+    border-radius:10px;
+}
+
+/* SCROLL AREA */
+
+.product-scroll{
+    width:100%;
+    overflow:hidden;
+    position:relative;
+}
+
+/* TRACK */
+
+.product-track{
+    display:flex;
+    gap:25px;
+    width:max-content;
+    animation:beautyScroll 35s linear infinite;
+}
+
+/* PAUSE ON HOVER */
+
+.product-track:hover{
+    animation-play-state:paused;
+}
+
+/* CARD */
+
+.product-card{
+    width:320px;
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    flex-shrink:0;
+
+    box-shadow:0 8px 20px rgba(0,0,0,0.1);
+
+    transition:0.4s;
+}
+
+.product-card:hover{
+    transform:translateY(-10px) scale(1.03);
+}
+
+/* IMAGE */
+
+.product-card img{
+    width:100%;
+    height:280px;
+    object-fit:cover;
+}
+
+/* CONTENT */
+
+.product-content{
+    padding:25px;
+    text-align:center;
+}
+
+.product-content h3{
+    color:#ff4f81;
+    margin-bottom:12px;
+    font-size:24px;
+}
+
+.product-content p{
+    color:#555;
+    line-height:1.6;
+    font-size:16px;
+}
+
+/* SCROLL ANIMATION */
+
+@keyframes beautyScroll{
+
+    0%{
+        transform:translateX(0);
+    }
+
+    100%{
+        transform:translateX(-50%);
+    }
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .products h2{
+        font-size:36px;
+    }
+
+    .product-card{
+        width:260px;
+    }
+
+    .product-card img{
+        height:220px;
+    }
+}
+
+/* FOOTER */
+
+footer{
+    background:#222;
+    color:white;
+    padding:50px 20px;
+}
+
+.footer-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:30px;
+    align-items:center;
+}
+
+.footer-info h2{
+    color:#ff85a2;
+    margin-bottom:15px;
+}
+
+.footer-info p{
+    margin-bottom:12px;
+    line-height:1.7;
+    font-size:17px;
+}
+
+.phone-link{
+    color:#ffb6c9;
+    text-decoration:none;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.phone-link:hover{
+    color:white;
+}
+
+.map iframe{
+    width:100%;
+    height:250px;
+    border:none;
+    border-radius:12px;
+}
+
+.copy{
+    text-align:center;
+    margin-top:30px;
+    color:#ccc;
+    font-size:15px;
+}
+
+@media (max-width:768px){
+
+    .logo-text p{
+        display:none;
+    }
+
+    .logo-circle{
+        width:45px;
+        height:45px;
+    }
+
+    .logo-text h2{
+        font-size:20px;
+    }
+
+    .navbar{
+        padding:10px 15px;
+    }
+}
+
+@media (max-width:768px){
+
+    .hero h1{
+        font-size:38px !important;
+        line-height:1.1;
+    }
+}
+@media (max-width:768px){
+
+    .hero-images{
+        display:flex;
+        justify-content:center;
+        gap:10px;
+        flex-wrap:nowrap;
+    }
+
+    .hero-images img{
+        width:90px;
+        height:90px;
+    }
+}
+@media (max-width:768px){
+
+    .hero-description{
+        font-size:18px;
+        line-height:1.6;
+        padding:0 15px;
+    }
+}
+
+@media (max-width:768px){
+
+    .hero-btn{
+        width:80%;
+        text-align:center;
+        margin:auto;
+    }
+}
+
+.whatsapp-btn-home{
+    display:inline-block;
+    padding:15px 35px;
+    background:#25D366;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    font-size:18px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.whatsapp-btn-home:hover{
+    background:#1EBE5D;
+    transform:translateY(-3px);
+}  
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER / NAVBAR -->
+
+<header class="navbar">
+
+    <!-- LOGO -->
+
+    <div class="logo">
+
+        <div class="logo-circle">
+            💄
+        </div>
+
+        <div class="logo-text">
+            <h2>Kavya's Beauty Clinic</h2>
+            <p>Only For Ladies</p>
+        </div>
+
+    </div>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+
+        <a href="#">Home</a>
+
+        <a href="#services">Services</a>
+
+        <a href="#products">Products</a>
+
+        <a href="#contact">Contact</a>
+
+    </nav>
+
+    <!-- CALL BUTTON -->
+
+    <a href="tel:9000731715" class="call-btn">
+
+        <i class="fa-solid fa-phone"></i>
+
+        Call Now
+
+    </a>
+
+</header>
+
+<!-- HERO CAROUSEL -->
+
+<!-- HERO SECTION -->
+
+<section class="hero">
+
+    <div class="hero-overlay"></div>
+
+    <img class="hero-bg"
+    src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1600"
+    alt="Beauty Clinic">
+
+    <!-- FLOATING IMAGES -->
+
+    <div class="floating-images">
+
+        <img src="https://images.unsplash.com/photo-1610173827043-9db50e0d8ef9?q=80&w=1200">
+
+        <img src="https://images.unsplash.com/photo-1631549424057-403e75d68e2f?q=80&w=1200">
+
+        <img src="https://images.unsplash.com/photo-1662561283890-b00a2d5b4bfc?q=80&w=1200">
+
+    </div>
+
+    <!-- CONTENT -->
+
+    <div class="hero-content">
+
+        <h2>Welcome to <span>Kavya's Beauty Clinic</span></h2>
+
+        <p>
+            Experience professional beauty care, luxurious makeup,
+            premium hair styling and glowing skin treatments
+            designed exclusively for women.
+        </p>
+
+        <a href="https://wa.me/919000683931?text=Hi%20Kavya's%20Beauty%20Clinic,%20I%20would%20like%20to%20book%20an%20appointment."
+   class="whatsapp-btn-home"
+   target="_blank">
+    <i class="fa-brands fa-whatsapp"></i>
+   WhatsApp
+</a>
+
+    </div>
+
+
+</section>
+
+<!-- SERVICES -->
+
+<section class="services" id="services">
+
+<h2>Our Services</h2>
+
+<div class="service-container">
+
+    <!-- Nail Polish -->
+
+    <div class="card">
+
+        <img src="https://images.unsplash.com/photo-1692881423829-9a2f80d7a84d?q=80&w=1200">
+
+        <div class="card-content">
+
+            <h3>Nail Polish</h3>
+
+            <p>Beautiful premium nail art & nail polish styles.</p>
+
+            <a href="nail-polish.html" class="hero-btn">
+    More Information
+</a>
+
+        </div>
+
+    </div>
+
+    <!-- Hair Style -->
+
+    <div class="card">
+
+        <img src="https://images.unsplash.com/photo-1707979577466-2d6109c68a45?q=80&w=1200">
+
+        <div class="card-content">
+
+            <h3>Hair Style</h3>
+
+            <p>Modern hair styling and beauty treatments.</p>
+
+            <a href="hair-style.html" class="hero-btn">
+    More Information
+</a>
+
+        </div>
+
+    </div>
+
+    <!-- Bridal Makeup -->
+
+    <div class="card">
+
+            <img src="https://images.unsplash.com/photo-1600685890506-593fdf55949b?q=80&w=1200" alt="Bridal Makeup">       <div class="card-content">
+
+            <h3>Bridal Makeup</h3>
+
+            <p>Luxury bridal makeup for weddings.</p>
+
+            <a href="bridal-makeup.html" class="hero-btn">
+    More Information
+</a>
+
+        </div>
+
+    </div>
+
+    <!-- Facial -->
+
+    <div class="card">
+
+        <img src="https://images.unsplash.com/photo-1643684391140-c5056cfd3436?q=80&w=1200">
+
+        <div class="card-content">
+
+            <h3>Facial</h3>
+
+            <p>Skin glow and facial care treatments.</p>
+
+            <a href="facial.html" class="hero-btn">
+    More Information
+</a>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- DETAILS -->
+
+<div id="serviceDetails"></div>
+
+</section>
+
+<!-- PRODUCTS -->
+
+<!-- PRODUCTS SECTION -->
+
+<!-- BEAUTY PRODUCTS -->
+
+<section class="products" id="products">
+
+    <h2>Beauty Products</h2>
+
+   <div class="product-scroll"> <div class="product-track"> <!-- PRODUCT 1 --> <div class="product-card"> <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=1200" alt="Luxury Makeup Kit"> <div class="product-content"> <h3>Luxury Makeup Kit</h3> <p>Professional beauty essentials collection.</p> </div> </div> <!-- PRODUCT 2 --> <div class="product-card"> <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?q=80&w=1200" alt="Skin Glow Cream"> <div class="product-content"> <h3>Skin Glow Cream</h3> <p>Hydrating cream for glowing healthy skin.</p> </div> </div> <!-- PRODUCT 3 --> <div class="product-card"> <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=1200" alt="Hair Serum"> <div class="product-content"> <h3>Hair Serum</h3> <p>Silky smooth hair protection treatment.</p> </div> </div> <!-- PRODUCT 4 --> <div class="product-card"> <img src="https://images.unsplash.com/photo-1599948128020-9a44505b0d1b?q=80&w=1200" alt="Nail Polish Collection"> <div class="product-content"> <h3>Nail Polish Collection</h3> <p>Premium stylish nail color collection.</p> </div> </div> <!-- PRODUCT 5 --> <div class="product-card"> <img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?q=80&w=1200" alt="Facial Care Kit"> <div class="product-content"> <h3>Facial Care Kit</h3> <p>Luxury skincare and facial treatment products.</p> </div> </div> <!-- PRODUCT 6 --> <div class="product-card"> <img src="https://images.unsplash.com/photo-1511923199659-1c16881689de?q=80&w=1200" alt="Bridal Makeup Kit"> <div class="product-content"> <h3>Bridal Makeup Kit</h3> <p>Professional bridal beauty products.</p> </div> </div> <!-- DUPLICATES FOR CONTINUOUS SCROLL --> <div class="product-card"> <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=1200" alt="Luxury Makeup Kit"> <div class="product-content"> <h3>Luxury Makeup Kit</h3> <p>Professional beauty essentials collection.</p> </div> </div> <div class="product-card"> <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?q=80&w=1200" alt="Skin Glow Cream"> <div class="product-content"> <h3>Skin Glow Cream</h3> <p>Hydrating cream for glowing healthy skin.</p> </div> </div> <div class="product-card"> <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=1200" alt="Hair Serum"> <div class="product-content"> <h3>Hair Serum</h3> <p>Silky smooth hair protection treatment.</p> </div> </div> <div class="product-card"> <img src="https://images.unsplash.com/photo-1599948128020-9a44505b0d1b?q=80&w=1200" alt="Nail Polish Collection"> <div class="product-content"> <h3>Nail Polish Collection</h3> <p>Premium stylish nail color collection.</p> </div> </div> </div> </div>
+
+</section>
+<!-- FOOTER -->
+
+<footer id="contact">
+
+<div class="footer-container" >
+
+    <!-- LEFT -->
+
+    <div class="footer-info">
+
+        <h2>Kavya's Beauty Clinic</h2>
+
+        <p>
+            MVP Colony, Sector 5 <br>
+            Near Seventh Day Public School <br>
+            Visakhapatnam
+        </p>
+
+        <p>
+            <strong>Phone:</strong><br>
+
+            <a href="tel:9000731715" class="phone-link">
+                📞 9000731715
+            </a>
+        </p>
+
+    </div>
+
+    <!-- RIGHT MAP -->
+
+    <div class="map">
+
+        <iframe
+        src="https://maps.google.com/maps?q=MVP%20Colony%20Sector%205%20Visakhapatnam&t=&z=13&ie=UTF8&iwloc=&output=embed">
+        </iframe>
+
+    </div>
+
+</div>
+
+<div class="copy">
+    © 2026 Kavya's Beauty Clinic | Only For Ladies
+</div>
+
+</footer>
+
+<script>
+
+function showService(text){
+
+    const details = document.getElementById("serviceDetails");
+
+    details.style.display = "block";
+
+    details.innerHTML = `
+
+        <h3>Service Information</h3>
+
+        <p style="font-size:18px; line-height:1.8;">
+            ${text}
+        </p>
+
+    `;
+
+    details.scrollIntoView({
+        behavior:'smooth'
+    });
+}
+
+</script>
+
+</body>
+</html>
